@@ -54,3 +54,8 @@ treeMethods.contains = function(target, tree) {
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+
+ /*
+  * addChild: O(1), single push
+  * contains: O(n), run recursively per n trees
+  */  
