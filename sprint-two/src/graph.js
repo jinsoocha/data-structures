@@ -6,8 +6,8 @@
 // {
 //   nodes: {
 //     1: [{2 :1},{3:1}]
-//     2: [1],
-//     3: [1],
+//     2: [{1:2}],
+//     3: [{1:3}],
 //   }
 // }
 
@@ -66,18 +66,30 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
 
   this.nodes[fromNode].push(a);
   this.nodes[toNode].push(b);
-  console.log(JSON.stringify(this.nodes[fromNode]));
 };
 
 // ------------------------
 // Remove an edge between any two specified (by value) nodes.
 Graph.prototype.removeEdge = function(fromNode, toNode) {
+  _.each(this.nodes[fromNode], function(node){
+    if(node[toNode]) {
+      delete node[toNode];
+    }
+  });
+  _.each(this.nodes[toNode], function(node){
+    if(node[fromNode]) {
+      delete node[fromNode];
+    }
+  });
 
 };
 
 // ------------------------
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
+  for (var key in this.nodes){
+    cb(key);
+  }
 };
 
 /*

@@ -15,38 +15,41 @@ treeMethods.addChild = function(value) {
   this.children.push(Tree(value));
 };
 
-treeMethods.contains = function(target, tree) {
+treeMethods.contains = function(target) {
 // No inner function version
-  // tree = tree || this;
-  // var result = false;
-  // if (tree.value === target){
-  //   result = true;
-  // } 
-  // if (tree.children.length > 0) {
-  //   _.each(tree.children, function(child) {
-  //     treeMethods.contains(target, child);
-  //   });
-  // }
-  // return result;
+  var result = false; 
 
-  var result = false;
-
-  var search = function(tree){
-    if(tree.value === target){
-      result = true;
-    }
-
-    if(tree.children.length > 0){
-      _.each(tree.children, function(child){
-        search(child);
+  if (this.value === target){
+    return true;
+  } else {
+    if (this.children.length > 0) {
+      _.each(this.children, function(child) {
+        result = result || child.contains(target);
       });
-    }
-
-  };
-
-  search(this);
+    }  
+  }
 
   return result;
+
+// Inner function version
+  // var result = false;
+
+  // var search = function(tree){
+  //   if(tree.value === target){
+  //     result = true;
+  //   }
+
+  //   if(tree.children.length > 0){
+  //     _.each(tree.children, function(child){
+  //       search(child);
+  //     });
+  //   }
+
+  // };
+
+  // search(this);
+
+  // return result;
 };
 
 
