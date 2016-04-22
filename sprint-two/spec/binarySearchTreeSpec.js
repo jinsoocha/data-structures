@@ -2,7 +2,6 @@ describe('binarySearchTree', function() {
   var binarySearchTree;
 
   beforeEach(function() {
-    console.log(JSON.stringify(BinarySearchTree));
     binarySearchTree = BinarySearchTree(5);
   });
 
