@@ -94,6 +94,13 @@ Graph.prototype.forEachNode = function(cb) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * addnode - O(1)
+ * contains -O(1)
+ * remove - O(1)
+ * hasedge -O(n)
+ * addedge - O(1)
+ * removeedge - O(n)
+ * foreachnode - O(n)
  */
 
 

@@ -50,6 +50,6 @@ var Node = function(value) {
 
  // Complexity: What is the time complexity of the above functions?
 
-// addToTail: O(1), simple references
-// removeHead: O(1), simple references
+// addToTail: O(1), simple insert to the tail which we have reference to
+// removeHead: O(1), simple remove to head which we have reference to
 // contains: O(n), n traversals on n nodes

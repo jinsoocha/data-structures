@@ -60,5 +60,5 @@ treeMethods.contains = function(target) {
 
  /*
   * addChild: O(1), single push
-  * contains: O(n), run recursively per n trees
+  * contains: O(n), run recursively per n nodes (or trees)
   */  

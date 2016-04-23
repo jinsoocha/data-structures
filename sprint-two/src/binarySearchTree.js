@@ -18,7 +18,6 @@ methods.insert = function(value){
   } else {
     if(this.right.value === undefined) {
       this.right = BinarySearchTree(value);
-      isInserted = true;
     } else {
       this.right.insert(value);
     }
@@ -26,17 +25,24 @@ methods.insert = function(value){
 };
 
 methods.contains = function(value){
+
   var result = false;
   if(value === this.value){
     return true;
   }
-  for(var key in this){
-    if((key === 'left' || key ==='right')) {
-      if(this[key].value !== undefined) {
-        result = result || this[key].contains(value);
-      }
+
+  if(value < this.value){
+    if(this.left !== undefined) {
+      result = result || this.left.contains(value);
     }
   }
+
+  if(value > this.value) {
+    if(this.right  !== undefined) {
+      result = result || this.right.contains(value);
+    }
+  }
+
   return result;
 };
 
@@ -55,4 +61,7 @@ methods.depthFirstLog = function(cb){
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * insert: O(log(n))
+ * contains: O(log(n))
+ * depthFirstLog: O(n)
  */
